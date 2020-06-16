@@ -5,4 +5,4 @@ Hello, guys welcome to my v2.0 Blogging app. This was built using Django. I have
 
 This was deployed on https://myblog-v2-0.herokuapp.com/ check it out! Its cool.
 
-Since this app is deployed on heroku, update profile pic doesn't work because heroku potentially deletes all the medial files, but in background your image is actually changed, but it doesn't have resources to display.
+*Since this app is deployed on heroku, update profile pic doesn't work because heroku potentially deletes all the medial files, but in background your image is actually changed, but it doesn't have resources to display.*
