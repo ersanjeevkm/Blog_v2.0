@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Delete Post</title>
+{% endblock %}
+{% block body %}
+    <h3 style="color: darkblue; font-family: 'Indie Flower'; font-size: 200%">Delete Post </h3>
+    <br>
+    <div class="card mb-2 p-3" style="width: 100%;border-radius: 3%">
+        <form method="post">
+            {% csrf_token %}
+            <h3>Are you sure that you wanna delete the post? <span style="color: firebrick">{{ post.title }}</span></h3>
+            <br>
+            <input class="btn btn-danger" type="submit" value="Delete">
+            <a class="btn btn-info" href="{% url 'post' post.id %}">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

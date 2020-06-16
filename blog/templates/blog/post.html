@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    <title>Post</title>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <div class="container">
+        <div class="card mb-2" style="width: 80%;border-radius: 3%">
+            <div class="card-body">
+                <img style="vertical-align: -15%; border-radius: 50%" width="60" height="60" src="{{ post.author.profile.image.url }}">
+                <div class="ml-3" style="display: inline-block">
+                  <h5 class="card-link">{{ post.title }}</h5>
+                  <small class="card-subtitle mb-2 text-muted"><a href="{% url 'user_posts' post.author %}" class="card-link">{{ post.author }}</a> on {{ post.date_posted }}</small>
+                  </div>
+                  <hr>
+                  <p style="white-space: pre-wrap" class="card-text">{{ post.content }}</p>
+            </div>
+        </div>
+        {% if user == post.author %}
+            <a class="btn btn-primary" href="{% url 'edit_post' post.id %}">Edit</a>
+            <a class="btn btn-danger" href="{% url 'delete_post' post.id %}">Delete</a>
+        {% endif %}
+    </div>
+    <hr>
+
+{% endblock %}

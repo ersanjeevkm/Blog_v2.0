@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    <title>Logout</title>
+{% endblock %}
+
+{% block body %}
+    <div class="card mb-2 p-3" style="width: 100%;border-radius: 3%">
+        Logged out successfully !<br><br>
+        <a href="{% url 'login' %}">Login here -> </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Account</title>
+{% endblock %}
+{% block body %}
+    <h3 style="color: darkblue; font-family: 'Indie Flower'; font-size: 200%">User account</h3>
+    <br>
+    <div class="card mb-2 p-3" style="width: 100%;border-radius: 3%">
+        <div style="overflow: auto">
+            <img class="ml-1" height="125" width="125" style="border-radius: 50%; float: left" src="{{ user.profile.image.url }}">
+            <div class="ml-5 mt-4" style="float: left">
+                <h3 style="color: crimson; font-family: 'Indie Flower'; font-size: 200%">{{ user.username }}</h3>
+                <h3 style="color: crimson; font-family: 'Indie Flower'; font-size: 200%">{{ user.email }}</h3>
+            </div>
+        </div>
+        <hr>
+        <h3 style="color: darkblue; font-family: 'Indie Flower'; font-size: 200%">Update account</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ u_form|crispy }}
+            {{ p_form }}
+            <p style="color: deeppink">Choose the squared image for better resolution. </p>
+            <br>
+            <input class="btn btn-success" type="submit" value="Update account">
+        </form>
+    </div>
+{% endblock %}

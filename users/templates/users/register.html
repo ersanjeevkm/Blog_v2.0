@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Register</title>
+{% endblock %}
+{% block body %}
+    <h3 style="color: darkblue; font-family: 'Indie Flower'; font-size: 200%">User Registration</h3>
+    <br>
+    <div class="card mb-2 p-3" style="width: 100%;border-radius: 3%">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input class="btn btn-success" type="submit" value="Register!">
+        </form>
+    </div>
+    <a href="{% url 'login' %}">Already have an account ?</a>
+{% endblock %}
